@@ -21,8 +21,11 @@ class NotesView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   context: context,
-                  builder: (context) {
-                    return const AddNotesBottomSheet();
+                  builder: (modalContext) {
+                    return BlocProvider.value(
+                      value: BlocProvider.of<NotesCubit>(context),
+                      child: const AddNotesBottomSheet(),
+                    );
                   },
                 );
               },
